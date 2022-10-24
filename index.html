@@ -21,6 +21,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
 </head>
 
 <body>
@@ -669,29 +670,56 @@
         </div>
       </div>
 
-      <form action=""  role="form" id="submit-form">
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <!--<div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>-->
-        </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
-      </form>
+       <form name="sentMessage" id="submit-form" method="post" action="">
+                <div class="form-row">
+                  <div class="control-group col-12">
+                    <input
+                      type="text"
+                      class="form-control p-4"
+                      id="name"
+                      name="name"
+                      placeholder="Your Name"
+                      required="required"
+                      onkeyup="validateName()"
+                    />
+                    <span id="name-error"></span>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="control-group col-12">
+                    <input
+                      type="email"
+                      class="form-control p-4"
+                      id="email"
+                      name="email"
+                      placeholder="Your Email"
+                      required="required"
+                      onkeyup="validateEmail()"
+                    />
+                    <span id="email-error"></span>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
 
+                <div class="control-group">
+                  <textarea
+                    class="form-control py-3 px-4"
+                    rows="5"
+                    id="msg"
+                    name="message"
+                    placeholder="Message"
+                    required="required"
+                  ></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div>
+                  <button
+                    class="btn btn-outline-primary"
+                    onclick="return validateForm()"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </form>
     </div>
   </section><!-- End Contact Section -->
 
@@ -710,8 +738,7 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  <script src="assets/vendor/php-email-form/validscrip.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
